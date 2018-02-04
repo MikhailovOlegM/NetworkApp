@@ -30,7 +30,7 @@ public class DragContainer implements Serializable {
 	}
 	
 	public <T> T getValue (String key) {
-		
+		System.out.println("Key in containver: " + key);
 		for (Pair<String, Object> data: mDataPairs) {
 			
 			if (data.getKey().equals(key))

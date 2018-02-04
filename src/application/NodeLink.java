@@ -1,11 +1,9 @@
 package application;
 
+import application.database.DataBaseConnection;
 import java.io.IOException;
 import java.util.UUID;
-
-import javafx.beans.binding.Binding;
 import javafx.beans.binding.Bindings;
-import javafx.beans.binding.DoubleBinding;
 import javafx.beans.binding.When;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
@@ -26,6 +24,7 @@ public class NodeLink extends AnchorPane {
     private final DoubleProperty mControlDirectionY1 = new SimpleDoubleProperty();
     private final DoubleProperty mControlDirectionX2 = new SimpleDoubleProperty();
     private final DoubleProperty mControlDirectionY2 = new SimpleDoubleProperty();
+    private DataBaseConnection db = new DataBaseConnection();
 
     public NodeLink() {
 
@@ -122,7 +121,9 @@ public class NodeLink extends AnchorPane {
         node_link.endYProperty().bind(
                 Bindings.add(target.layoutYProperty(),
                         (target.getWidth() / 2.0)));
-        System.out.println("REGISTER LINK: " + source + ":" + target);
+        //TODO сделать тут внесение в массив вложенных элементов для source
+        db.addChildDevice(source, target);
+
         source.registerLink(getId());
         target.registerLink(getId());
     }

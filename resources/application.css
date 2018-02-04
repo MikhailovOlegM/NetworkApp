@@ -33,6 +33,7 @@
 }
 
 .icon-custom {
+	-fx-background-color: white;
 	-fx-background-image: url("./img/cloud.png");
   -fx-background-position: left top, center;
   -fx-background-repeat: no-repeat;
@@ -40,8 +41,7 @@
 }
 
 .icon-red {
-  -fx-
-	-fx-background-color: red;
+	-fx-background-color: white;
 	-fx-background-image: url("./img/netw.png");
   -fx-background-position: left top, center;
   -fx-background-repeat: no-repeat;

@@ -1,15 +1,22 @@
 package application.device;
 
-public class CustomDevice {
+import application.DragIconType;
+
+public abstract class CustomDevice {
+
     private String name;
+    private DragIconType type;
     private String id;
 
-    public String getName() {
-        return name;
+    public CustomDevice() {
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public DragIconType getType() {
+        return type;
+    }
+
+    public void setType(DragIconType type) {
+        this.type = type;
     }
 
     public String getId() {
@@ -19,4 +26,13 @@ public class CustomDevice {
     public void setId(String id) {
         this.id = id;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
 }

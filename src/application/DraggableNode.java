@@ -1,12 +1,11 @@
 package application;
 
+import application.device.CustomDevice;
 import java.io.IOException;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.UUID;
-
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
@@ -17,7 +16,6 @@ import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.DragEvent;
-import javafx.scene.input.Dragboard;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
@@ -138,7 +136,9 @@ public class DraggableNode extends AnchorPane {
         getStyleClass().add("dragicon");
 
         switch (mType) {
-
+            case custom_object:
+                getStyleClass().add("icon-custom");
+                break;
             case blue:
                 getStyleClass().add("icon-blue");
                 break;
@@ -221,7 +221,7 @@ public class DraggableNode extends AnchorPane {
                         iterId.hasNext(); ) {
 
                     String id = iterId.next();
-                    System.out.println("Maybe node link: " + iterId);
+                    System.out.println("handle: " + iterId);
                     for (ListIterator<Node> iterNode = parent.getChildren()
                             .listIterator();
                             iterNode.hasNext(); ) {
